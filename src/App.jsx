@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+
+import Splash from "./pages/Login/Splash";
+import FirstPage from "./pages/Login/FirstPage";
+import Select from "./pages/Login/Select";
+import Signi from "./pages/Login/Signi";
+import Signup from "./pages/Login/Signup";
+import Detail from "./pages/Home/Detail";
+import Home from "./pages/Home/Home";
+import Upload from "./pages/Home/Upload";
+import Notice from "./pages/Education/Notice";
+import Video from "./pages/Education/Video";
+import AskB from "./pages/MyPage/AskB";
+import MyPageB from "./pages/MyPage/MyPageB";
+import MyPageS from "./pages/MyPage/MyPageS";
+import AskManagement from "./pages/MyPage/AskManagement";
+import OrderManagement from "./pages/MyPage/OrderManagement";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Splash />} />
+        <Route path="/first-page" element={<FirstPage />} />
+        <Route path="/select" element={<Select />} />
+        <Route path="/signi" element={<Signi />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/detail" element={<Detail />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/notice" element={<Notice />} />
+        <Route path="/video" element={<Video />} />
+        <Route path="/askb" element={<AskB />} />
+        <Route path="/mypageb" element={<MyPageB />} />
+        <Route path="/mypages" element={<MyPageS />} />
+        <Route path="/ask-management" element={<AskManagement />} />
+        <Route path="/order-management" element={<OrderManagement />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
