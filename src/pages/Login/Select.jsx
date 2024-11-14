@@ -2,6 +2,7 @@ import React from "react";
 import * as C from "../../styles/CommonStyle";
 import * as S from "../../styles/Login/SelectStyle";
 import Back from "../../components/back";
+
 import image1 from "../../assets/images/Login/image1.png";
 import image2 from "../../assets/images/Login/image2.png";
 import image3 from "../../assets/images/Login/image3.png";
