@@ -2,10 +2,12 @@ import React from "react";
 import * as C from "../../styles/CommonStyle"; 
 import * as I from "../../styles/Login/SigninStyle"; 
 import Anyone from "../../assets/images/Login/Anyone.png";
+import Back from "../../components/back";
 
 function App() {
   return (
     <C.Page>
+      <Back /> 
       <C.Center>
         <C.PageSpace>
           <I.Wrapper>

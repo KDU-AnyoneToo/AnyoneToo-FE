@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as C from "../../styles/CommonStyle";
 import * as U from "../../styles/Login/SignupStyle";
+import Back from "../../components/back";
 
 function App() {
   const [role, setRole] = useState("");
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <C.Page>
+      <Back /> 
       <C.Center>
         <C.PageSpace>
           <U.Wrapper>
