@@ -12,9 +12,9 @@ export const Wrapper = styled.div`
 export const FieldContainer = styled.div`
   width: 100%;
   max-width: 353px;
-  margin-bottom: ${({ marginBottom }) => marginBottom || "20px"};
-  margin-top: ${({ marginTop }) => marginTop || "0"};
-  text-align: ${({ align }) => align || "left"};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom || "20px"};
+  margin-top: ${({ $marginTop }) => $marginTop || "0"};
+  text-align: ${({ $align }) => $align || "left"};
 `;
 
 export const InputGroup = styled.div`
@@ -31,7 +31,6 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 20px;
   box-sizing: border-box;
-  color: white;
   background-color: #FFFFFF;
 `;
 
@@ -95,4 +94,14 @@ export const Button = styled.button`
     background-color: #ffffff;
     color: #ee8814;
   }
+`;
+
+export const Message = styled.p`
+  margin-top: 8px;
+  font-size: 14px;
+  color: ${({ color }) => color};
+  height: 20px;
+  visibility: ${({ $visible }) => ($visible ? "visible" : "hidden")}; 
+  text-align: left;
+  line-height: 20px;
 `;

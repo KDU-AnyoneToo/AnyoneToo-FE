@@ -54,3 +54,17 @@ export const Image = styled.img`
   margin: 0 auto;
   margin-bottom: 60px;
 `;
+
+// 유효한 메시지 스타일
+export const ValidMessage = styled.p`
+  margin-top: 8px;
+  color: green;
+  font-size: 14px;
+`;
+
+// 유효하지 않은 메시지 스타일
+export const InvalidMessage = styled.p`
+  margin-top: 8px;
+  color: red;
+  font-size: 14px;
+`;
