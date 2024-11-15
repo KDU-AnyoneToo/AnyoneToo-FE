@@ -55,4 +55,8 @@ export const DivisionLine = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  margin-top: 21px;
+  display: flex;
+  margin-left: 16px;
+`;
