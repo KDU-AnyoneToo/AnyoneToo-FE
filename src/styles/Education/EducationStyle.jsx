@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  margin-left: 21px;
+  margin-top: 10px;
 `;
 
 export const Btn = styled.button`
@@ -24,4 +26,7 @@ export const Btn = styled.button`
 
 export const Content = styled.div`
   margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  padding: 0 18px;
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const List = styled.ul`
   list-style: none;
+  display: flex;
   padding: 0;
   margin: 0;
 `;
@@ -11,6 +12,8 @@ export const ListItem = styled.li`
   box-sizing: border-box;
   display: felx;
   margin-bottom: 14px;
+  align-items: center;
+  justify-content: center;
   width: 363px;
   height: 237px;
   border-radius: 20px;

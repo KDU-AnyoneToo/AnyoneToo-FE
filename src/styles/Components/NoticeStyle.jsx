@@ -12,6 +12,8 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   flex-direction: column;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
   display: felx;
   margin-bottom: 14px;
   width: calc(50% - 7px);
