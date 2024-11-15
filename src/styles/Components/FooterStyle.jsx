@@ -13,20 +13,26 @@ export const FooterContainer = styled.footer`
   border-radius: 30px 30px 0 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-
-  @media (max-width: 768px) {
-    height: 60px; /* 모바일에서 높이 조정 */
-  }
+  height: 80px;
 `;
 
 export const MenuItem = styled.img`
-  width: 50px;
-  height: 50px;
   cursor: pointer;
   transition: transform 0.2s;
+  height: 30px; 
+  width: 40px;
+  object-fit: contain; 
+`;
 
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px; /* 모바일에서 크기 조정 */
-  }
+export const MenuItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 5px;
+`;
+
+export const MenuText = styled.span`
+  font-size: 12px;
+  color: ${(props) => (props.active ? "#EE8814" : "#777777")};
+  font-weight: ${(props) => (props.active ? "bold" : "normal")};
 `;
