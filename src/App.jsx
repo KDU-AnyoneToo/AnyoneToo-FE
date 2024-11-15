@@ -11,11 +11,9 @@ import Detail from "./pages/Home/Detail";
 import Home from "./pages/Home/Home";
 import Upload from "./pages/Home/Upload";
 import Education from "./pages/Education/Education";
-import AskB from "./pages/MyPage/AskB";
-import MyPageB from "./pages/MyPage/MyPageB";
-import MyPageS from "./pages/MyPage/MyPageS";
-import AskManagement from "./pages/MyPage/AskManagement";
-import OrderManagement from "./pages/MyPage/OrderManagement";
+import MyPage from "./pages/MyPage/MyPage";
+import Ask from "./pages/MyPage/Ask";
+import Order from "./pages/MyPage/Order";
 
 function App() {
   return (
@@ -31,11 +29,9 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/education" element={<Education />} />
-          <Route path="/askb" element={<AskB />} />
-          <Route path="/mypageb" element={<MyPageB />} />
-          <Route path="/mypages" element={<MyPageS />} />
-          <Route path="/ask-management" element={<AskManagement />} />
-          <Route path="/order-management" element={<OrderManagement />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/ask" element={<Ask />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 import React from "react";
 import * as C from "../../styles/CommonStyle";
 
-function AskB() {
+function Ask() {
   return (
     <C.Page>
       <C.Center>
@@ -11,4 +11,4 @@ function AskB() {
   );
 }
 
-export default AskB;
+export default Ask;

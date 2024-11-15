@@ -1,7 +1,7 @@
 import React from "react";
 import * as C from "../../styles/CommonStyle";
 
-function AskManagement() {
+function MyPage() {
   return (
     <C.Page>
       <C.Center>
@@ -11,4 +11,4 @@ function AskManagement() {
   );
 }
 
-export default AskManagement;
+export default MyPage;

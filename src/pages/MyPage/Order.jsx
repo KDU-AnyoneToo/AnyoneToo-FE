@@ -1,7 +1,7 @@
 import React from "react";
 import * as C from "../../styles/CommonStyle";
 
-function OrderManagement() {
+function Order() {
   return (
     <C.Page>
       <C.Center>
@@ -11,4 +11,4 @@ function OrderManagement() {
   );
 }
 
-export default OrderManagement;
+export default Order;
