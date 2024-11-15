@@ -11,6 +11,7 @@ export const Page = styled.div`
   background-repeat: no-repeat;
   overflow-y: scroll;
   overflow-x: hidden;
+  position: relative
 `;
 
 export const Center = styled.div`
