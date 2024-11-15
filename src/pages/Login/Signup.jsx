@@ -3,13 +3,13 @@ import * as C from "../../styles/CommonStyle";
 import * as U from "../../styles/Login/SignupStyle";
 import Back from "../../components/back";
 
-function App() {
+function Signup() {
   const [role, setRole] = useState("");
-  const [userId, setUserId] = useState(""); 
-  const [isIdValid, setIsIdValid] = useState(null); 
-  const [password, setPassword] = useState(""); 
-  const [confirmPassword, setConfirmPassword] = useState(""); 
-  const [isPasswordMatch, setIsPasswordMatch] = useState(null); 
+  const [userId, setUserId] = useState("");
+  const [isIdValid, setIsIdValid] = useState(null);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isPasswordMatch, setIsPasswordMatch] = useState(null);
 
   const handleRoleClick = (selectedRole) => {
     setRole(selectedRole);
@@ -20,11 +20,11 @@ function App() {
     setUserId(input);
 
     if (input.length > 0 && input.length <= 4) {
-      setIsIdValid(false); 
+      setIsIdValid(false);
     } else if (input.length > 4) {
-      setIsIdValid(true); 
+      setIsIdValid(true);
     } else {
-      setIsIdValid(null); 
+      setIsIdValid(null);
     }
   };
 
@@ -46,24 +46,16 @@ function App() {
 
   return (
     <C.Page>
-      <Back /> 
+      <Back />
       <C.Center>
         <C.PageSpace>
           <U.Wrapper>
             <U.FieldContainer $marginBottom="70px">
               <U.InputGroup>
-                <U.Input
-                  type="text"
-                  placeholder="아이디"
-                  value={userId}
-                  onChange={handleIdChange}
-                />
+                <U.Input type="text" placeholder="아이디" value={userId} onChange={handleIdChange} />
                 <U.DuplicateButton>중복확인</U.DuplicateButton>
               </U.InputGroup>
-              <U.Message
-                color={isIdValid === false ? "#ee8814" : "#808080"}
-                $visible={isIdValid !== null}
-              >
+              <U.Message color={isIdValid === false ? "#ee8814" : "#808080"} $visible={isIdValid !== null}>
                 {isIdValid === false
                   ? "사용 불가능한 아이디입니다."
                   : isIdValid === true
@@ -74,12 +66,7 @@ function App() {
 
             <U.FieldContainer $marginBottom="px">
               <U.InputGroup>
-                <U.Input
-                  type="password"
-                  placeholder="비밀번호"
-                  value={password}
-                  onChange={handlePasswordChange}
-                />
+                <U.Input type="password" placeholder="비밀번호" value={password} onChange={handlePasswordChange} />
               </U.InputGroup>
             </U.FieldContainer>
 
@@ -92,11 +79,8 @@ function App() {
                   onChange={handleConfirmPasswordChange}
                 />
               </U.InputGroup>
-             
-              <U.Message
-                color={isPasswordMatch === false ? "#ee8814" : "#808080"}
-                $visible={isPasswordMatch !== null}
-              >
+
+              <U.Message color={isPasswordMatch === false ? "#ee8814" : "#808080"} $visible={isPasswordMatch !== null}>
                 {isPasswordMatch === false
                   ? "비밀번호가 일치하지 않습니다."
                   : isPasswordMatch === true
@@ -119,16 +103,10 @@ function App() {
 
             <U.FieldContainer $align="center" $marginBottom="40px">
               <U.RoleButtonGroup>
-                <U.RoleButton
-                  className={role === "seller" ? "selected" : ""}
-                  onClick={() => handleRoleClick("seller")}
-                >
+                <U.RoleButton className={role === "seller" ? "selected" : ""} onClick={() => handleRoleClick("seller")}>
                   판매자
                 </U.RoleButton>
-                <U.RoleButton
-                  className={role === "buyer" ? "selected" : ""}
-                  onClick={() => handleRoleClick("buyer")}
-                >
+                <U.RoleButton className={role === "buyer" ? "selected" : ""} onClick={() => handleRoleClick("buyer")}>
                   구매자
                 </U.RoleButton>
               </U.RoleButtonGroup>
@@ -144,4 +122,4 @@ function App() {
   );
 }
 
-export default App;
+export default Signup;

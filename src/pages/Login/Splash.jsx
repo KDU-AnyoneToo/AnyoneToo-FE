@@ -4,7 +4,7 @@ import * as C from "../../styles/CommonStyle";
 import * as S from "../../styles/Login/Splash";
 import Loading from "../../assets/images/Login/Loading.png";
 
-function App() {
+function Splash() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Splash;

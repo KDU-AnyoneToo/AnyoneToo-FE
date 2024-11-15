@@ -31,7 +31,7 @@ const items = [
   { id: 12, image: image12, title: "이미지 12" },
 ];
 
-function App() {
+function Select() {
   return (
     <C.Page>
       <Back />
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default Select;
