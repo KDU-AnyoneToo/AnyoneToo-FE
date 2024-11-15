@@ -1,4 +1,4 @@
-@import url('./styles/reset.css');
+@import url("./styles/reset.css");
 
 img {
   width: auto;
@@ -9,6 +9,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   min-height: 100vh;
+  background-color: #ffffff;
 
   @supports (-webkit-touch-callout: none) {
     min-height: -webkit-fill-available;
