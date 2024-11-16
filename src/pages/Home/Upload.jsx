@@ -1,28 +1,31 @@
 import React, { useRef, useState } from "react";
 import * as C from "../../styles/CommonStyle";
 import * as U from "../../styles/Home/UploadStyle";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import Modal from "../../components/priceModal";
 import Back from "../../components/back";
 
 function Upload() {
   const fileInputRef = useRef(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  const [productName, setProductName] = useState(''); 
+  const [images, setImages] = useState([]);
+  const [productName, setProductName] = useState('');
   const [productDetails, setProductDetails] = useState('');
-  const [productPrice, setProductPrice] = useState('00,000원'); // 가격 상태
+  const [productPrice, setProductPrice] = useState('00,000원');
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleAddPhotoClick = () => {
     fileInputRef.current.click();
   };
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
+    const files = event.target.files;
+    const imageFiles = Array.from(files);
+    const newImages = imageFiles.map(file => URL.createObjectURL(file));
+    setImages([...images, ...newImages]);
   };
 
   const adjustTextAreaHeight = event => {
@@ -31,53 +34,47 @@ function Upload() {
     const newHeight = Math.max(target.scrollHeight, 100); 
     target.style.height = `${newHeight}px`; 
   };
-  
-  
+
+  const handlePriceClick = () => setModalOpen(true);
+
+  const handlePriceChange = newPrice => setProductPrice(newPrice);
+
   return (
     <U.Page>
       <Back />
       <U.Center>
         <U.PageSpace>
           <U.Wrapper>
-            <U.Title>관심사 선택</U.Title>
-            <U.Line />
-            <U.PhotoAddButton onClick={handleAddPhotoClick} style={{
-              backgroundImage: `url(${imagePreview})`,
-              backgroundSize: 'cover', 
-              backgroundPosition: 'center center', 
-              backgroundRepeat: 'no-repeat', 
-            }}>
-              <input
-                type="file"
-                style={{ display: "none" }}
-                ref={fileInputRef}
-                onChange={handleFileChange}
-              />
-              {!imagePreview && <span style={{ fontSize: '48px', color: 'white' }}>+</span>}
+            <U.Title>제목은 필요 없을지도?</U.Title>
+            <input type="file" multiple ref={fileInputRef} onChange={handleFileChange} style={{ display: "none" }}/>
+            <U.PhotoAddButton onClick={handleAddPhotoClick}>
+              {images.length === 0 ? (
+                <span style={{ fontSize: '48px', color: 'white' }}>+</span>
+              ) : (
+                <Swiper spaceBetween={50} slidesPerView={1} loop={true} pagination={{
+                    clickable: true, dynamicBullets: true, renderBullet: (index, className) => {
+                    return `<span class="${className}" style="background-color: ${index === Swiper.activeIndex ? '#EE8814' : '#EE8814'}"></span>`;
+                  }
+                }} modules={[Pagination]}>
+                  {images.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <img src={image} alt={`Preview ${index}`} style={{ width: '321px', height: '321px', objectFit: 'cover' }} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              )}
             </U.PhotoAddButton>
-            <U.ProfileSection>
-              <U.ProfileImage src={imagePreview || 'defaultProfile.png'} alt="Profile" />
-              <U.ProfileName>사용자 이름</U.ProfileName>
-            </U.ProfileSection>
-            <U.Input
-              value={productName}
-              onChange={e => setProductName(e.target.value)}
-              placeholder="상품 이름"
-            />
-            <U.PriceButton>
+            <U.Input value={productName} onChange={e => setProductName(e.target.value)} placeholder="상품명" />
+            <U.PriceButton onClick={handlePriceClick}>
               <U.PriceLabel>상품 금액</U.PriceLabel>
               <U.PriceValue>{productPrice}</U.PriceValue>
             </U.PriceButton>
-            <U.TextArea
-              value={productDetails}
-              onChange={e => setProductDetails(e.target.value)}
-              onInput={adjustTextAreaHeight}  
-              placeholder="상품 상세 내용을 작성해주세요"
-            />
+            <U.TextArea value={productDetails} onChange={e => setProductDetails(e.target.value)} onInput={adjustTextAreaHeight} placeholder="상품 상세 내용을 작성해주세요." />
             <U.ButtonRow>
               <U.CancelButton onClick={() => console.log('취소')}>취소</U.CancelButton>
               <U.CompleteButton onClick={() => console.log('완료')}>완료</U.CompleteButton>
             </U.ButtonRow>
+            <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} onChange={handlePriceChange} />
           </U.Wrapper>
         </U.PageSpace>
       </U.Center>

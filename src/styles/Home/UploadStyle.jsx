@@ -67,6 +67,7 @@ export const PhotoAddButton = styled.div`
   align-items: center;
   cursor: pointer;
   margin: 20px auto; 
+  position: relative; /* 새로 추가: 점 위치 조정을 위해 */
 
 `;
 
@@ -155,4 +156,18 @@ export const ButtonRow = styled.div`
   justify-content: space-between;
   margin-bottom:20%;
   gap: 10%;
+`;
+
+/* Swiper 커스텀 스타일 */
+export const SwiperContainer = styled.div`
+  width: 100%; /* 슬라이더 전체 너비를 부모 컨테이너에 맞춤 */
+  height: 100px; /* 높이는 자동으로 설정, 필요에 따라 조정 가능 */
+  margin-top: 20px; /* 슬라이더와 다른 요소 간의 간격 조정 */
+`;
+
+/* 이미지 스타일 */
+export const SlideImage = styled.img`
+  width: 100%; /* 슬라이드 너비에 맞게 이미지 크기 조정 */
+  height: 100px; /* 이미지 원본 비율 유지 */
+  display: block; /* 이미지가 블록 요소처럼 동작하도록 설정 */
 `;
