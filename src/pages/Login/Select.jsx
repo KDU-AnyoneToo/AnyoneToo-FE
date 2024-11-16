@@ -33,10 +33,10 @@ const items = [
 
 function Select() {
   return (
-    <C.Page>
+    <S.Page>
       <Back />
-      <C.Center>
-        <C.PageSpace>
+      <S.Center>
+        <S.PageSpace>
           <S.Wrapper>
             <S.Title>관심사 선택</S.Title>
             <S.Line />
@@ -49,9 +49,9 @@ function Select() {
             </S.Grid>
             <S.Button className="next">완료</S.Button>
           </S.Wrapper>
-        </C.PageSpace>
-      </C.Center>
-    </C.Page>
+        </S.PageSpace>
+      </S.Center>
+    </S.Page>
   );
 }
 

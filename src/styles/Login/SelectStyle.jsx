@@ -1,18 +1,52 @@
+// SelectStyle.jsx
+
 import styled from "styled-components";
+
+export const Page = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+`;
+
+export const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+export const PageSpace = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+   height: 100%;
+`;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 170%; 
-  gap: 36px; 
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 36px;
+  padding-top:14%;
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
   color: #333;
 `;
 
@@ -22,13 +56,13 @@ export const Line = styled.hr`
   background-color: #ddd;
   border: none;
   margin: 0 auto;
-  margin-bottom: 36px;
+  margin-bottom: -5%;
 `;
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 180px); 
-  gap: 36px 14px; 
+  grid-template-columns: repeat(2, 180px);
+  gap: 36px 14px;
   justify-content: center;
 `;
 
@@ -38,21 +72,7 @@ export const Box = styled.div`
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  background: ${({ image }) =>
-    image ? `url(${image}) center/cover no-repeat` : "none"};
-`;
-
-
-export const Label = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.8); 
-  color: #000;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 8px 0;
+  background: ${({ image }) => image ? `url(${image}) center/cover no-repeat` : "none"};
 `;
 
 export const Button = styled.button`
@@ -73,4 +93,3 @@ export const Button = styled.button`
     color: #ee8814;
   }
 `;
-
