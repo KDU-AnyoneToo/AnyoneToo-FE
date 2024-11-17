@@ -1,6 +1,6 @@
 import React from "react";
-import * as MB from "../styles/Components/MyPageB";
-import Profile from "../assets/images/MyPage/profile.png";
+import * as MB from "../styles/Components/MyPageBStyle";
+import Test from "../assets/images/MyPage/test1.png";
 import Plus from "../assets/images/MyPage/plus.png";
 
 function MypageB() {
@@ -9,7 +9,7 @@ function MypageB() {
       <MB.ListItem>
         <MB.ListContent>
           <MB.ListContainer>
-            <MB.ListImg src={Profile}></MB.ListImg>
+            <MB.ListImg src={Test}></MB.ListImg>
             <MB.ListText>Test</MB.ListText>
           </MB.ListContainer>
           <MB.ListMore src={Plus}></MB.ListMore>

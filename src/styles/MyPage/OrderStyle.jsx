@@ -1,10 +1,58 @@
 import styled from "styled-components";
 
+export const Product = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 26px 0 10px 0;
+  justify-content: center;
+`;
+
+export const ProductImg = styled.img`
+  width: 167px;
+  height: 167px;
+`;
+
+export const ProductTitle = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin-left: 20px;
+  width: 167px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Line = styled.div`
+  width: 364px;
+  height: 1px;
+  background-color: #e2e2e2;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+`;
+
+export const ListTitle = styled.div`
+  height: 20px;
+  width: 364px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 10px;
+`;
+
 export const List = styled.ul`
-  ist-style: none;
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  justify-content: center;
 `;
 
 export const ListItem = styled.li`

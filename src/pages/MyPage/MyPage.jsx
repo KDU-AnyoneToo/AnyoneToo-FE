@@ -1,6 +1,6 @@
 import React from "react";
 import * as C from "../../styles/CommonStyle";
-import * as M from "../../styles/MyPage/MyPage";
+import * as M from "../../styles/MyPage/MyPageStyle";
 import MyPageB from "../../components/MypageB";
 import MyPageS from "../../components/MypageS";
 import Profile from "../../assets/images/MyPage/profile.png";

@@ -1,5 +1,5 @@
 import React from "react";
-import * as MS from "../styles/Components/MyPageS";
+import * as MS from "../styles/Components/MyPageSStyle";
 
 function MyPageS() {
   return (
