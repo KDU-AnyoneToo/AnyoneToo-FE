@@ -27,6 +27,19 @@ export const Line = styled.hr`
   margin-bottom: -5%;
 `;
 
+export const SliderWrapper = styled.div`
+  display: flex;
+  justify-content: center; 
+  width: 100%; 
+  padding: 0 16px;
+  
+`;
+
+export const SwiperContainer = styled.div`
+  width: 321px; /* 슬라이더의 고정 너비 설정 */
+`;
+
+
 export const Button = styled.button`
   width: 344px;
   height: 50px;
