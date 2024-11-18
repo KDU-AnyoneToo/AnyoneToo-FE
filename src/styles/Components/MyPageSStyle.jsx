@@ -16,7 +16,7 @@ export const ListItem = styled.li`
   justify-content: center;
   display: felx;
   margin-bottom: 14px;
-  width: 176px;
+  width: calc(50% - 7px);
   height: 317px;
   border-radius: 20px;
   border: 0.5px solid #b2b2b2;
