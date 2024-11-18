@@ -143,7 +143,7 @@ export const DButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* 호버 시 배경색 */
+    background-color: rgba(0, 0, 0, 0.1); 
   }
 `;
 

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as C from "../../styles/CommonStyle";
 import * as U from "../../styles/Home/UploadStyle";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,9 +8,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Modal from "../../components/priceModal";
-import Back from "../../components/back";
+import userProfile from "../../assets/images/user.png";
 
 function Upload() {
+  const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const [images, setImages] = useState([]);
   const [productName, setProductName] = useState("");
@@ -41,11 +43,10 @@ function Upload() {
 
   return (
     <U.Page>
-      <Back />
       <U.Center>
         <U.PageSpace>
           <U.Wrapper>
-            <U.Title>제목은 필요 없을지도?</U.Title>
+            <U.Title>상품 등록</U.Title>
             <input
               type="file"
               multiple
@@ -97,6 +98,10 @@ function Upload() {
                 </Swiper>
               )}
             </U.PhotoAddButton>
+            <U.ProfileContainer>
+                <U.ProfileImage src={userProfile} alt="사용자 프로필" />
+                <U.UserName>김옥순</U.UserName>
+              </U.ProfileContainer>
             <U.Input
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
@@ -113,7 +118,7 @@ function Upload() {
               placeholder="상품 상세 내용을 작성해주세요."
             />
             <U.ButtonRow>
-              <U.CancelButton onClick={() => console.log("취소")}>
+            <U.CancelButton onClick={() => navigate("/home")}>
                 취소
               </U.CancelButton>
               <U.CompleteButton onClick={() => console.log("완료")}>
