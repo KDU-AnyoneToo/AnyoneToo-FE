@@ -50,6 +50,14 @@ export const Title = styled.h1`
   color: #333;
 `;
 
+export const Comment = styled.h1`
+  font-size: 15px;
+  font-weight: bold;
+  color: #EE8814;
+  text-align: left;
+  margin-right: 30%;
+`;
+
 export const Line = styled.hr`
   width: 364px;
   height: 2px;
@@ -72,8 +80,32 @@ export const Box = styled.div`
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  background: ${({ image }) => image ? `url(${image}) center/cover no-repeat` : "none"};
+  background: ${({ image }) =>
+    image ? `url(${image}) center/cover no-repeat` : "none"};
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* 선택되지 않은 상태 */
+  border: none;
+
+  /* 선택된 상태 */
+  &.selected {
+    box-shadow: inset 0 0 0 5px #ee8814; /* 내부 테두리 */
+  }
+
+  /* 반투명 오버레이 */
+  &.selected::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(238, 136, 20, 0.3); /* 반투명 오버레이 */
+    z-index: 1;
+  }
 `;
+
 
 export const Button = styled.button`
   width: 344px;
@@ -86,7 +118,8 @@ export const Button = styled.button`
   background-color: #ee8814;
   color: white;
   transition: background-color 0.3s ease;
-  margin-top: 40px;
+  margin-top: 10%;
+  margin-bottom: 5%;
 
   &:hover {
     background-color: #ffffff;

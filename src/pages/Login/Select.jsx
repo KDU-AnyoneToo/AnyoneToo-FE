@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as C from "../../styles/CommonStyle";
 import * as S from "../../styles/Login/SelectStyle";
 import Back from "../../components/back";
@@ -32,6 +32,18 @@ const items = [
 ];
 
 function Select() {
+  const [selectedIds, setSelectedIds] = useState([]);
+
+  const handleSelect = (id) => {
+    if (selectedIds.includes(id)) {
+      setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
+    } else if (selectedIds.length < 5) {
+      setSelectedIds([...selectedIds, id]);
+    } else {
+      alert("최대 5개까지 선택할 수 있습니다."); 
+    }
+  };
+
   return (
     <S.Page>
       <Back />
@@ -40,9 +52,15 @@ function Select() {
           <S.Wrapper>
             <S.Title>관심사 선택</S.Title>
             <S.Line />
+            <S.Comment>관심있는 분야를 3~5개 선택해주세요</S.Comment>
             <S.Grid>
               {items.map((item) => (
-                <S.Box key={item.id} image={item.image}>
+                <S.Box
+                  key={item.id}
+                  image={item.image}
+                  className={selectedIds.includes(item.id) ? "selected" : ""}
+                  onClick={() => handleSelect(item.id)}
+                >
                   {/* <S.Label>{item.title}</S.Label> */}
                 </S.Box>
               ))}
