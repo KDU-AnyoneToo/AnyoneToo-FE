@@ -103,6 +103,7 @@ export const DescriptionBox = styled.div`
 `;
 
 export const ProfileContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -120,6 +121,32 @@ export const UserName = styled.div`
   font-weight: bold;
   color: #333;
 `;
+
+export const DButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 18px; 
+  color: #999; 
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  position: absolute; 
+  top: 50%; 
+  right: 0;
+  transform: translateY(-50%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; 
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* 호버 시 배경색 */
+  }
+`;
+
 
 export const DescriptionText = styled.div`
   font-size: 12px;
@@ -162,6 +189,7 @@ export const CommentHeader = styled.div`
 `;
 
 export const ReplyContainer = styled.div`
+  position:relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -196,7 +224,6 @@ export const ReplyText = styled.div`
     color: #333;
   }
 `;
-
 
 export const ReplyBox = styled.div`
   width: 303px;

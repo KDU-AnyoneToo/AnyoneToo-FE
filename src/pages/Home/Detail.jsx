@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Back from "../../components/back";
 import Footer from "../../components/Footer";
+import BottomModal from "../../components/bottomModal"; 
 import arrow from "../../assets/images/Home/arrow.svg";
 import test1 from "../../assets/images/test1.png";
 import test2 from "../../assets/images/test2.png";
@@ -17,6 +18,12 @@ import userProfile from "../../assets/images/user.png";
 function Detail() {
   const [images, setImages] = useState([test1, test2, test3]);
   const [showReplies, setShowReplies] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
 
   const replies = [
     {
@@ -96,11 +103,13 @@ function Detail() {
               <D.ProfileContainer>
                 <D.ProfileImage src={userProfile} alt="사용자 프로필" />
                 <D.UserName>김옥순</D.UserName>
+                <D.DButton onClick={handleModalToggle}>...</D.DButton>
+                <BottomModal isOpen={isModalOpen} onClose={handleModalToggle} />
               </D.ProfileContainer>
               <D.DescriptionText>
                 정신차려 하트 키링을 보며 늘 잊지 말아요! 신이어는 준이어를 항상 응원하고 언제나 곁에 있다는걸...
                 사용자의 모니터 환경과 해상도에 따라 실제 색상과 차이가 날 수 있습니다.
-                사이즈는 55x65mm로 패브릭 소재에요! 이 글이 얼마나 길어질지는 모르겠지만 이정도면 적당할까요
+                사이즈는 55x65mm로 패브릭 소재에요! 이 글이 얼마나 길어질지는 모르겠지만 이정도면 적당할까요.
               </D.DescriptionText>
             </D.DescriptionBox>
 
@@ -112,6 +121,7 @@ function Detail() {
               <D.ProfileContainer>
                 <D.ProfileImage src={userProfile} alt="사용자 프로필" />
                 <D.UserName>김옥순</D.UserName>
+                <D.DButton onClick={handleModalToggle}>...</D.DButton>
               </D.ProfileContainer>
               <D.CommentText>
                 정신차려 하트 키링을 보며 늘 잊지 말아요! 신이어는 준이어를 항상 응원하고 언제나 곁에 있다는걸...
@@ -131,6 +141,7 @@ function Detail() {
                   <D.ReplyContainer>
                     <D.ProfileImage src={reply.userProfile} alt="사용자 프로필" />
                     <D.UserName>{reply.userName}</D.UserName>
+                    <D.DButton onClick={handleModalToggle}>...</D.DButton>
                   </D.ReplyContainer>
                   <D.CommentText>{reply.content}</D.CommentText>
                 </D.ReplyBox>
