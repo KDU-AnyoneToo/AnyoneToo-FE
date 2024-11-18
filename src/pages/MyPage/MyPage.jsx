@@ -2,7 +2,7 @@ import React from "react";
 import * as C from "../../styles/CommonStyle";
 import * as M from "../../styles/MyPage/MyPageStyle";
 import MyPageB from "../../components/MypageB";
-import MyPageS from "../../components/MypageS";
+import MyPageS from "../../components/MyPageS";
 import Profile from "../../assets/images/MyPage/profile.png";
 
 function MyPage() {
@@ -21,7 +21,7 @@ function MyPage() {
             </M.DivisionLine>
           </M.Division>
           <M.Content>
-            <MyPageB></MyPageB>
+            <MyPageS></MyPageS>
           </M.Content>
         </C.PageSpace>
       </C.Center>
