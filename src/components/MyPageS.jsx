@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import * as MS from "../styles/Components/MyPageSStyle";
-import ModalDelete from "../components/ModalDelete";
+import ModalDelete from "./ModalDelete";
+import ModalManagement from "./ModalManagement";
+import More from "../assets/images/MyPage/plus.png";
 
 function MyPageS() {
   const [isModalOpenD, setIsModalOpenD] = useState(false);
   const [isModalVisibleD, setIsModalVisibleD] = useState(false);
+  const [isModalOpenM, setIsModalOpenM] = useState(false);
+  const [isModalVisibleM, setIsModalVisibleM] = useState(false);
 
   const openModalD = () => {
     setIsModalOpenD(true);
@@ -16,6 +20,16 @@ function MyPageS() {
       setIsModalOpenD(false);
     }, 400);
   };
+  const openModalM = () => {
+    setIsModalOpenM(true);
+    setIsModalVisibleM(true);
+  };
+  const closeModalM = () => {
+    setIsModalVisibleM(false);
+    setTimeout(() => {
+      setIsModalOpenM(false);
+    }, 400);
+  };
 
   return (
     <MS.List>
@@ -23,7 +37,8 @@ function MyPageS() {
         <MS.ListImg></MS.ListImg>
         <MS.ListText>
           <MS.ListTitle>Test</MS.ListTitle>
-          <MS.ListMore></MS.ListMore>
+          <MS.ListMore src={More} onClick={openModalM}></MS.ListMore>
+          {isModalOpenM && <ModalManagement onClose={closeModalM} isModalVisibleM={isModalVisibleM} />}
         </MS.ListText>
         <MS.LsitPrice>12,000원</MS.LsitPrice>
         <MS.ListButton>
