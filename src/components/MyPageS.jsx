@@ -52,7 +52,8 @@ function MyPageS() {
         <MS.ListImg></MS.ListImg>
         <MS.ListText>
           <MS.ListTitle>Test</MS.ListTitle>
-          <MS.ListMore></MS.ListMore>
+          <MS.ListMore src={More} onClick={openModalM}></MS.ListMore>
+          {isModalOpenM && <ModalManagement onClose={closeModalM} isModalVisibleM={isModalVisibleM} />}
         </MS.ListText>
         <MS.LsitPrice>12,000원</MS.LsitPrice>
         <MS.ListButton>

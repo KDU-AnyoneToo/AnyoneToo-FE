@@ -49,6 +49,8 @@ export const ListTitle = styled.div`
 
 export const ListMore = styled.img`
   cursor: pointer;
+  width: 3px;
+  hwight: 13px;
 `;
 
 export const LsitPrice = styled.div`
