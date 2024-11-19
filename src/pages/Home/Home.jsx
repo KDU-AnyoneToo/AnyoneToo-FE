@@ -4,6 +4,7 @@ import * as C from '../../styles/CommonStyle';
 import * as H from '../../styles/Home/HomeStyle';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import SearchHeader from '../../components/searchHeader';
 import image from '../../assets/images/Home/image1.png';
 import Upload from '../../assets/images/Home/upload.svg';
 import Back from "../../components/back";

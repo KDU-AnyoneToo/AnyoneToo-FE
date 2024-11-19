@@ -30,9 +30,34 @@ export const Icon = styled.img`
 
 export const Separator = styled.div`
   position: absolute;
-  top:10%;
+  top:11%;
   width: 95%; 
-  
   height: 1px;
   background-color: #e2e2e2;
+`;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #ffffff; 
+  border-radius: 20px;
+  padding: 12px 20px;
+  gap: 8px;
+  width: 80%; 
+  border: 1px solid #000;
+`;
+
+export const SearchInput = styled.input`
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #333;
+`;
+
+export const SearchIcon = styled.img`
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 `;
