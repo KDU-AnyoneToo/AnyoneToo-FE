@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import Back from "../../components/back";
 import Footer from "../../components/Footer";
 import BottomModal from "../../components/bottomModal";
+import ModalConfirm from "../../components/ModalConfirm";
 
 import arrow from "../../assets/images/Home/arrow.svg";
 import post from "../../assets/images/Home/post.svg";
@@ -21,6 +22,7 @@ import userProfile from "../../assets/images/user.png";
 function Detail() {
   const [images, setImages] = useState([test1, test2, test3]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [comment, setComment] = useState(""); 
   const [comments, setComments] = useState([]); 
   const [selectedCommentId, setSelectedCommentId] = useState(null); 
@@ -28,6 +30,10 @@ function Detail() {
 
   const handleModalToggle = () => {
     setIsModalOpen((prev) => !prev);
+  };
+
+  const handleConfirmModalToggle = () => {
+    setIsConfirmModalOpen((prev) => !prev);
   };
 
 
@@ -135,7 +141,9 @@ function Detail() {
               </D.DescriptionText>
             </D.DescriptionBox>
 
-            <D.Button className="next">구매하기</D.Button>
+            <D.Button className="next" onClick={handleConfirmModalToggle}>
+              구매하기
+            </D.Button>
 
             <D.CommentHeader>댓글 {comments.length}</D.CommentHeader>
 
@@ -205,6 +213,14 @@ function Detail() {
           </D.Wrapper>
         </D.PageSpace>
       </D.Center>
+      
+      {/* 구매 확인 모달 */}
+      {isConfirmModalOpen && (
+        <ModalConfirm
+          isModalVisibleD={isConfirmModalOpen}
+          onClose={handleConfirmModalToggle}
+        />
+      )}
       <Footer />
     </D.Page>
   );
