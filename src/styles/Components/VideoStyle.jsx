@@ -39,7 +39,7 @@ export const ListText = styled.div`
 `;
 
 export const ListTitle = styled.div`
-  width: 316px;
+  width: 90%;
   font-weight: bold;
   font-size: 14px;
   color: #000000;
@@ -47,4 +47,6 @@ export const ListTitle = styled.div`
 
 export const ListMore = styled.img`
   cursor: pointer;
+  width: 3px;
+  height: 13px;
 `;

@@ -20,13 +20,6 @@ function Notice() {
           <N.ListMore src={More} alt="more"></N.ListMore>
         </N.ListText>
       </N.ListItem>
-      <N.ListItem>
-        <N.ListImg src={Test} alt="test"></N.ListImg>
-        <N.ListText>
-          <N.ListTitle>Test</N.ListTitle>
-          <N.ListMore src={More} alt="more"></N.ListMore>
-        </N.ListText>
-      </N.ListItem>
     </N.List>
   );
 }
