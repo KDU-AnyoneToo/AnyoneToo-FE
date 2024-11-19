@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as MS from "../styles/Components/MyPageSStyle";
 import ModalDelete from "./ModalDelete";
 import ModalManagement from "./ModalManagement";
-import More from "../assets/images/MyPage/plus.png";
+import More from "../assets/images/Common/more.png";
 
 function MyPageS() {
   const [isModalOpenD, setIsModalOpenD] = useState(false);
