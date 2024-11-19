@@ -6,10 +6,13 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import Back from "../../components/back";
 import Footer from "../../components/Footer";
-import BottomModal from "../../components/bottomModal"; 
+import BottomModal from "../../components/bottomModal";
+
 import arrow from "../../assets/images/Home/arrow.svg";
+import post from "../../assets/images/Home/post.svg";
 import test1 from "../../assets/images/test1.png";
 import test2 from "../../assets/images/test2.png";
 import test3 from "../../assets/images/test3.png";
@@ -17,31 +20,44 @@ import userProfile from "../../assets/images/user.png";
 
 function Detail() {
   const [images, setImages] = useState([test1, test2, test3]);
-  const [showReplies, setShowReplies] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [comment, setComment] = useState(""); 
+  const [comments, setComments] = useState([]); 
+  const [selectedCommentId, setSelectedCommentId] = useState(null); 
+
 
   const handleModalToggle = () => {
     setIsModalOpen((prev) => !prev);
   };
 
 
-  const replies = [
-    {
-      id: 1,
-      userName: "김답글1",
-      userProfile: userProfile,
-      content: "1",
-    },
-    {
-      id: 2,
-      userName: "김답글2",
-      userProfile: userProfile,
-      content: "2",
-    },
-  ];
+  const handlePostComment = () => {
+    if (comment.trim() === "") return; 
 
-  const handleReplyToggle = () => {
-    setShowReplies((prevShowReplies) => !prevShowReplies);
+    if (selectedCommentId) {
+        {/* 답글 추가 */}
+      setComments((prevComments) =>
+        prevComments.map((c) =>
+          c.id === selectedCommentId
+            ? { ...c, replies: [...c.replies, { id: Date.now(), content: comment }] }
+            : c
+        )
+      );
+    } else {
+       {/* 댓글 추가 */}
+      setComments([
+        ...comments,
+        { id: Date.now(), content: comment, replies: [] },
+      ]);
+    }
+
+    setComment(""); 
+    setSelectedCommentId(null); 
+  };
+
+  
+  const handleReplyToggle = (id) => {
+    setSelectedCommentId(id); 
   };
 
   return (
@@ -50,8 +66,11 @@ function Detail() {
       <D.Center>
         <D.PageSpace>
           <D.Wrapper>
+            {/* 타이틀 */}
             <D.Title>하트 키링</D.Title>
             <D.Line />
+
+            {/* 이미지 슬라이더 */}
             <D.SliderWrapper>
               <Swiper
                 style={{
@@ -99,6 +118,7 @@ function Detail() {
               </Swiper>
             </D.SliderWrapper>
 
+            {/* 제품 설명 */}
             <D.DescriptionBox>
               <D.ProfileContainer>
                 <D.ProfileImage src={userProfile} alt="사용자 프로필" />
@@ -107,46 +127,81 @@ function Detail() {
                 <BottomModal isOpen={isModalOpen} onClose={handleModalToggle} />
               </D.ProfileContainer>
               <D.DescriptionText>
-                정신차려 하트 키링을 보며 늘 잊지 말아요! 신이어는 준이어를 항상 응원하고 언제나 곁에 있다는걸...
-                사용자의 모니터 환경과 해상도에 따라 실제 색상과 차이가 날 수 있습니다.
-                사이즈는 55x65mm로 패브릭 소재에요! 이 글이 얼마나 길어질지는 모르겠지만 이정도면 적당할까요.
+                정신차려 하트 키링을 보며 늘 잊지 말아요! 신이어는 준이어를 항상
+                응원하고 언제나 곁에 있다는걸... 사용자의 모니터 환경과
+                해상도에 따라 실제 색상과 차이가 날 수 있습니다. 사이즈는
+                55x65mm로 패브릭 소재에요! 이 글이 얼마나 길어질지는
+                모르겠지만 이정도면 적당할까요.
               </D.DescriptionText>
             </D.DescriptionBox>
 
             <D.Button className="next">구매하기</D.Button>
 
-            <D.CommentHeader>댓글 1</D.CommentHeader>
+            <D.CommentHeader>댓글 {comments.length}</D.CommentHeader>
 
-            <D.CommentBox isHighlighted={showReplies}>
+            {/* 댓글 목록 */}
+            {comments.map((comment) => (
+              <div key={comment.id}>
+                <D.CommentBox isHighlighted={selectedCommentId === comment.id}>
+                  {/* 댓글 */}
+                  <D.ProfileContainer>
+                    <D.ProfileImage src={userProfile} alt="사용자 프로필" />
+                    <D.UserName>김옥순</D.UserName>
+                  </D.ProfileContainer>
+                  <D.CommentText>{comment.content}</D.CommentText>
+                </D.CommentBox>
+                <D.ReplyHeader onClick={() => handleReplyToggle(comment.id)}>
+                  <D.ReplyIcon src={arrow} alt="Reply Icon" />
+                  <D.ReplyText>{comment.replies.length} 답글</D.ReplyText>
+                </D.ReplyHeader>
+
+                {/* 답글 */}
+                <div>
+                  {comment.replies.map((reply) => (
+                    <D.ReplyBox key={reply.id}>
+                      <D.ProfileContainer>
+                        <D.ProfileImage src={userProfile} alt="사용자 프로필" />
+                        <D.UserName>김옥순</D.UserName>
+                      </D.ProfileContainer>
+                      <D.CommentText>{reply.content}</D.CommentText>
+                    </D.ReplyBox>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* 댓글, 답글 입력 */}
+            <D.CommentInputBox>
               <D.ProfileContainer>
                 <D.ProfileImage src={userProfile} alt="사용자 프로필" />
                 <D.UserName>김옥순</D.UserName>
-                <D.DButton onClick={handleModalToggle}>...</D.DButton>
               </D.ProfileContainer>
-              <D.CommentText>
-                정신차려 하트 키링을 보며 늘 잊지 말아요! 신이어는 준이어를 항상 응원하고 언제나 곁에 있다는걸...
-              </D.CommentText>
-            </D.CommentBox>
+              <D.CommentInputRow>
+                <D.CommentInput
+                  type="text"
+                  placeholder={
+                    selectedCommentId ? "답글을 작성해주세요" : "댓글을 작성해주세요"
+                  }
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+                <D.PostIcon
+                  src={post}
+                  alt="Post Comment"
+                  onClick={handlePostComment}
+                />
+              </D.CommentInputRow>
+            </D.CommentInputBox>
 
-            <D.ReplyHeader onClick={handleReplyToggle}>
-              <D.ReplyIcon src={arrow} alt="arrow icon" />
-              <D.ReplyText>
-                {showReplies ? `답글 ${replies.length}` : `답글 ${replies.length}`}
-              </D.ReplyText>
-            </D.ReplyHeader>
-
-            {showReplies &&
-              replies.map((reply) => (
-                <D.ReplyBox key={reply.id}>
-                  <D.ReplyContainer>
-                    <D.ProfileImage src={reply.userProfile} alt="사용자 프로필" />
-                    <D.UserName>{reply.userName}</D.UserName>
-                    <D.DButton onClick={handleModalToggle}>...</D.DButton>
-                  </D.ReplyContainer>
-                  <D.CommentText>{reply.content}</D.CommentText>
-                </D.ReplyBox>
-              ))}
-
+            {/* 비밀글 체크박스 */}
+            <D.SecretOptionContainer>
+              <D.SecretCheckbox
+                type="checkbox"
+                id="secret"
+                onChange={(e) => console.log(e.target.checked)}
+              />
+              <D.SecretLabel htmlFor="secret">비밀글이에요</D.SecretLabel>
+            </D.SecretOptionContainer>
           </D.Wrapper>
         </D.PageSpace>
       </D.Center>

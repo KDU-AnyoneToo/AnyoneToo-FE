@@ -61,7 +61,7 @@ export const Line = styled.hr`
 export const SliderWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%; 
+  width: 100%;
   padding: 0 16px;
 `;
 
@@ -192,6 +192,7 @@ export const ReplyContainer = styled.div`
   position:relative;
   display: flex;
   align-items: center;
+  margin-top:10%;
   gap: 10px;
 
 `;
@@ -200,7 +201,6 @@ export const ReplyHeader = styled.div`
 width: 100%;
   margin-left: 15%;
   cursor: pointer;
-   margin-top: -7%;
    
   &:hover {
     color: #333;
@@ -233,6 +233,69 @@ export const ReplyBox = styled.div`
   flex-direction: column;
   gap: 10px;
   border: 1px solid #b2b2b2;
-  margin-top: -3%;
-  margin-left: 10%;
+  margin-top: 4%;
+  margin-left: 12%;
+`;
+
+export const CommentInputBox = styled.div`
+  width: 353px;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 10px;
+  border: 1px solid #b2b2b2;
+  background-color: white;
+`;
+
+export const CommentInputRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+`;
+
+export const CommentInput = styled.input`
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  color: #000;
+  background-color: transparent;
+`;
+
+export const PostIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+export const SecretOptionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  margin-left: 15%;
+  margin-top:-5%;
+  gap: 8px; 
+  width: 100%;
+`;
+
+
+export const SecretCheckbox = styled.input`
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+`;
+
+export const SecretLabel = styled.label`
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
 `;
