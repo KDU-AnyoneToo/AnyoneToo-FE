@@ -1,6 +1,6 @@
 import React from "react";
 import * as V from "../styles/Components/VideoStyle";
-import More from "../assets/images/Education/more.png";
+import More from "../assets/images/Common/more.png";
 import Test from "../assets/images/Education/test.png";
 
 function Video() {

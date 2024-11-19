@@ -1,6 +1,6 @@
 import React from "react";
 import * as N from "../styles/Components/NoticeStyle";
-import More from "../assets/images/Education/more.png";
+import More from "../assets/images/Common/more.png";
 import Test from "../assets/images/Education/test.png";
 
 function Notice() {
